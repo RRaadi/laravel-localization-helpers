@@ -178,7 +178,7 @@ class Localization
         $result = [];
         $string = Tools::minifyString(file_get_contents($path));
 
-        foreach (array_flatten($trans_methods) as $method) {
+        foreach (\Illuminate\Support\Arr::flatten($trans_methods) as $method) {
             preg_match_all($method, $string, $matches);
 
             foreach ($matches[1] as $k => $v) {
